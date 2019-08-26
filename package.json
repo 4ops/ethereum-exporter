@@ -1,6 +1,6 @@
 {
     "name": "ethereum-exporter",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "Collects statistics from parity or geth node via JSON-RPC and exports it in prometheus metrics format.",
     "engines": {
         "node": ">=12.8.0"
