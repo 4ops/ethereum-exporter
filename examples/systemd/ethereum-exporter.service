@@ -1,0 +1,12 @@
+[Unit]
+Description=Ethereum node metrics exporter for Prometheus
+Documentation=https://github.com/4ops/ethereum-exporter
+After=network.target
+
+[Service]
+Environment=ETHEREUM_API_URL=http://localhost:8545
+ExecStart=/opt/ethereum-exporter/daemon-example.sh
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target

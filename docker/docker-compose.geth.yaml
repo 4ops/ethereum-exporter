@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  ethereum:
+    image: ethereum/client-go:v1.8.27
+    command:
+      - --datadir=/data
+      - --networkid=3
+      - --syncmode=fast
+      - --rpc
+      - --rpcaddr=0.0.0.0
+      - --rpcvhosts=*
+      - --rpcapi=web3,eth,admin,net,txpool,db,debug
+      - --maxpeers=25
+      - --testnet

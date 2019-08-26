@@ -1,0 +1,40 @@
+#
+# Use this resource only if prometheus operator installed.
+# See: https://github.com/coreos/prometheus-operator
+#
+# It's just an example! Edit this file before deploy to kubernetes cluster!
+#
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    prometheus-job: ethereum-stats
+  name: ethereum-exporter-discovery
+  namespace: testing
+spec:
+  ports:
+    - name: http-metrics
+      port: 9144
+      protocol: TCP
+      targetPort: 9144
+  selector:
+    metrics-exporter: ethereum-exporter
+  type: ClusterIP
+  clusterIP: None
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: ethereum-exporters
+  namespace: monitoring
+spec:
+  endpoints:
+    - interval: 30s
+      port: http-metrics
+  jobLabel: prometheus-job
+  namespaceSelector:
+    matchNames:
+      - testing
+  selector:
+    matchLabels:
+      prometheus-job: ethereum-stats

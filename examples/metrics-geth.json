@@ -1,0 +1,386 @@
+[
+  {
+    "help": "Errors counter.",
+    "name": "ethereum_exporter_errors",
+    "type": "counter",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Is node syncing.",
+    "name": "ethereum_is_syncing",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "The block number where the sync started.",
+    "name": "ethereum_starting_block",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "The block number where at which block the node currently synced to already.",
+    "name": "ethereum_current_block",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "The estimated block number to sync to.",
+    "name": "ethereum_highest_block",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "The estimated states to download.",
+    "name": "ethereum_known_states",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "The already downloaded states.",
+    "name": "ethereum_pulled_states",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "True if the node is mining, otherwise false.",
+    "name": "ethereum_is_mining",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Protocol version - string value in labels.",
+    "name": "ethereum_protocol_version",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 1,
+        "labels": {
+          "value": "0x3f"
+        }
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Returns the number of hashes per second that the node is mining with.",
+    "name": "ethereum_hash_rate",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Returns the current block number.",
+    "name": "ethereum_block_number",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "The network ID.",
+    "name": "ethereum_net_id",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 3,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Checks if the node is listening for peers.",
+    "name": "ethereum_is_listening",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 1,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Get the number of peers connected to.",
+    "name": "ethereum_peer_count",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 1,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Guesses the chain the node is connected by comparing the genesis hashes.",
+    "name": "ethereum_network_type",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 1,
+        "labels": {
+          "value": "ropsten"
+        }
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Number of pending transactions.",
+    "name": "ethereum_txpool_pending",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Number of queued transactions.",
+    "name": "ethereum_txpool_queuedg",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "The current client version - text value in labels.",
+    "name": "ethereum_node_info",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 1,
+        "labels": {
+          "value": "Geth/v1.8.27-stable-4bcc0a37/linux-amd64/go1.11.9"
+        }
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Current max number of transactions in queue.",
+    "name": "ethereum_parity_transactions_limit",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Returns number of unsigned transactions when running with Trusted Signer.",
+    "name": "ethereum_parity_unsigned_transactions_count",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Returns number of unsigned transactions when running with Trusted Signer.",
+    "name": "ethereum_parity_mode",
+    "type": "gauge",
+    "values": [],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Returns the name of the connected chain.",
+    "name": "ethereum_parity_chain",
+    "type": "gauge",
+    "values": [],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Track on which it was released, one of: \"stable\", \"beta\", \"nightly\", \"testing\", \"null\" (unknown or self-built).",
+    "name": "ethereum_parity_version_track",
+    "type": "gauge",
+    "values": [],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Parity version info - major.",
+    "name": "ethereum_parity_version_major",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Parity version info - minor.",
+    "name": "ethereum_parity_version_minor",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Parity version info - patch.",
+    "name": "ethereum_parity_version_patch",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Parity peers info - active.",
+    "name": "ethereum_parity_peers_active",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Parity peers info - connected.",
+    "name": "ethereum_parity_peers_connected",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Parity peers info - max.",
+    "name": "ethereum_parity_peers_max",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Returns the node type availability and capability.",
+    "name": "ethereum_parity_node_availability",
+    "type": "gauge",
+    "values": [],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Returns the node type availability and capability.",
+    "name": "ethereum_parity_node_capability",
+    "type": "gauge",
+    "values": [],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Provides current JSON-RPC API settings.",
+    "name": "ethereum_parity_rpc_enabled",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Provides current JSON-RPC API settings.",
+    "name": "ethereum_parity_rpc_interface",
+    "type": "gauge",
+    "values": [],
+    "aggregator": "sum"
+  },
+  {
+    "help": "Provides current JSON-RPC API settings.",
+    "name": "ethereum_parity_rpc_port",
+    "type": "gauge",
+    "values": [
+      {
+        "value": 0,
+        "labels": {}
+      }
+    ],
+    "aggregator": "sum"
+  }
+]

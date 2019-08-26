@@ -1,0 +1,135 @@
+# HELP ethereum_exporter_errors Errors counter.
+# TYPE ethereum_exporter_errors counter
+ethereum_exporter_errors 0
+
+# HELP ethereum_is_syncing Is node syncing.
+# TYPE ethereum_is_syncing gauge
+ethereum_is_syncing 1
+
+# HELP ethereum_starting_block The block number where the sync started.
+# TYPE ethereum_starting_block gauge
+ethereum_starting_block 0
+
+# HELP ethereum_current_block The block number where at which block the node currently synced to already.
+# TYPE ethereum_current_block gauge
+ethereum_current_block 0
+
+# HELP ethereum_highest_block The estimated block number to sync to.
+# TYPE ethereum_highest_block gauge
+ethereum_highest_block 0
+
+# HELP ethereum_known_states The estimated states to download.
+# TYPE ethereum_known_states gauge
+ethereum_known_states 0
+
+# HELP ethereum_pulled_states The already downloaded states.
+# TYPE ethereum_pulled_states gauge
+ethereum_pulled_states 0
+
+# HELP ethereum_is_mining True if the node is mining, otherwise false.
+# TYPE ethereum_is_mining gauge
+ethereum_is_mining 0
+
+# HELP ethereum_protocol_version Protocol version - string value in labels.
+# TYPE ethereum_protocol_version gauge
+ethereum_protocol_version{value="63"} 1
+
+# HELP ethereum_hash_rate Returns the number of hashes per second that the node is mining with.
+# TYPE ethereum_hash_rate gauge
+ethereum_hash_rate 0
+
+# HELP ethereum_block_number Returns the current block number.
+# TYPE ethereum_block_number gauge
+ethereum_block_number 0
+
+# HELP ethereum_net_id The network ID.
+# TYPE ethereum_net_id gauge
+ethereum_net_id 3
+
+# HELP ethereum_is_listening Checks if the node is listening for peers.
+# TYPE ethereum_is_listening gauge
+ethereum_is_listening 1
+
+# HELP ethereum_peer_count Get the number of peers connected to.
+# TYPE ethereum_peer_count gauge
+ethereum_peer_count 1
+
+# HELP ethereum_network_type Guesses the chain the node is connected by comparing the genesis hashes.
+# TYPE ethereum_network_type gauge
+ethereum_network_type{value="ropsten"} 1
+
+# HELP ethereum_txpool_pending Number of pending transactions.
+# TYPE ethereum_txpool_pending gauge
+ethereum_txpool_pending 0
+
+# HELP ethereum_txpool_queuedg Number of queued transactions.
+# TYPE ethereum_txpool_queuedg gauge
+ethereum_txpool_queuedg 0
+
+# HELP ethereum_node_info The current client version - text value in labels.
+# TYPE ethereum_node_info gauge
+ethereum_node_info{value="Parity-Ethereum//v2.5.5-stable-3ebc769-20190708/x86_64-linux-gnu/rustc1.36.0"} 1
+
+# HELP ethereum_parity_transactions_limit Current max number of transactions in queue.
+# TYPE ethereum_parity_transactions_limit gauge
+ethereum_parity_transactions_limit 8192
+
+# HELP ethereum_parity_unsigned_transactions_count Returns number of unsigned transactions when running with Trusted Signer.
+# TYPE ethereum_parity_unsigned_transactions_count gauge
+ethereum_parity_unsigned_transactions_count 0
+
+# HELP ethereum_parity_mode Returns number of unsigned transactions when running with Trusted Signer.
+# TYPE ethereum_parity_mode gauge
+ethereum_parity_mode{value="active"} 1
+
+# HELP ethereum_parity_chain Returns the name of the connected chain.
+# TYPE ethereum_parity_chain gauge
+ethereum_parity_chain{value="ropsten testnet"} 1
+
+# HELP ethereum_parity_version_track Track on which it was released, one of: "stable", "beta", "nightly", "testing", "null" (unknown or self-built).
+# TYPE ethereum_parity_version_track gauge
+ethereum_parity_version_track{value="stable"} 1
+
+# HELP ethereum_parity_version_major Parity version info - major.
+# TYPE ethereum_parity_version_major gauge
+ethereum_parity_version_major 2
+
+# HELP ethereum_parity_version_minor Parity version info - minor.
+# TYPE ethereum_parity_version_minor gauge
+ethereum_parity_version_minor 5
+
+# HELP ethereum_parity_version_patch Parity version info - patch.
+# TYPE ethereum_parity_version_patch gauge
+ethereum_parity_version_patch 5
+
+# HELP ethereum_parity_peers_active Parity peers info - active.
+# TYPE ethereum_parity_peers_active gauge
+ethereum_parity_peers_active 1
+
+# HELP ethereum_parity_peers_connected Parity peers info - connected.
+# TYPE ethereum_parity_peers_connected gauge
+ethereum_parity_peers_connected 1
+
+# HELP ethereum_parity_peers_max Parity peers info - max.
+# TYPE ethereum_parity_peers_max gauge
+ethereum_parity_peers_max 1
+
+# HELP ethereum_parity_node_availability Returns the node type availability and capability.
+# TYPE ethereum_parity_node_availability gauge
+ethereum_parity_node_availability{value="personal"} 1
+
+# HELP ethereum_parity_node_capability Returns the node type availability and capability.
+# TYPE ethereum_parity_node_capability gauge
+ethereum_parity_node_capability{value="full"} 1
+
+# HELP ethereum_parity_rpc_enabled Provides current JSON-RPC API settings.
+# TYPE ethereum_parity_rpc_enabled gauge
+ethereum_parity_rpc_enabled 1
+
+# HELP ethereum_parity_rpc_interface Provides current JSON-RPC API settings.
+# TYPE ethereum_parity_rpc_interface gauge
+ethereum_parity_rpc_interface{value="0.0.0.0"} 1
+
+# HELP ethereum_parity_rpc_port Provides current JSON-RPC API settings.
+# TYPE ethereum_parity_rpc_port gauge
+ethereum_parity_rpc_port 8545

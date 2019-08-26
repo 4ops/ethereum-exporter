@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  ethereum:
+    image: parity/parity:v2.5.5-stable
+    command:
+      - --no-config
+      - --logging=info
+      - --mode=active
+      - --interface=all
+      - --port=30303
+      - --nat=auto
+      - --snapshot-peers=0
+      - --min-peers=1
+      - --max-peers=10
+      - --max-pending-peers=64
+      - --jsonrpc-port=8545
+      - --jsonrpc-interface=all
+      - --jsonrpc-apis=web3,eth,net,debug,parity,rpc
+      - --jsonrpc-hosts=all
+      - --jsonrpc-cors=all
+      - --tracing=on
+      - --cache-size-db=128
+      - --cache-size-blocks=8
+      - --cache-size-queue=40
+      - --cache-size-state=25
+      - --no-serve-light
+      - --no-ipc
+      - --no-secretstore
+      - --db-compaction=ssd
+      - --chain=ropsten
+      - --network-id=3

@@ -1,0 +1,16 @@
+{
+  "env": {
+    "node": true
+  },
+  "plugins": [
+    "node",
+    "prettier",
+    "security"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:security/recommended",
+    "plugin:node/recommended",
+    "plugin:prettier/recommended"
+  ]
+}

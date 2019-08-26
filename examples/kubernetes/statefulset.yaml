@@ -1,0 +1,114 @@
+#
+# It's just an example! Edit this file before deploy to kubernetes cluster!
+#
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    k8s-app: parity
+    blockchain: ropsten
+    currency: eth
+  name: parity-ropsten
+  namespace: testing
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      k8s-app: parity
+      blockchain: ropsten
+  serviceName: parity-ropsten
+  template:
+    metadata:
+      annotations:
+        prometheus.io/path: '/metrics'
+        prometheus.io/port: '9144'
+        prometheus.io/scrape: 'true'
+      creationTimestamp: null
+      labels:
+        k8s-app: parity
+        blockchain: ropsten
+        metrics-exporter: ethereum-exporter
+    spec:
+      containers:
+        - args:
+            - '--datadir=/data'
+            - '--networkid=3'
+            - '--syncmode=fast'
+            - '--rpc'
+            - '--rpcaddr=0.0.0.0'
+            - '--rpcvhosts=*'
+            - '--rpcapi=web3,eth,admin,net,txpool,db,debug'
+            - '--maxpeers=25'
+            - '--testnet'
+          image: parity/parity:v2.5.5-stable
+          livenessProbe:
+            tcpSocket:
+              port: 30303
+            timeoutSeconds: 1
+          name: parity
+          ports:
+            - containerPort: 8545
+              name: rpc
+              protocol: TCP
+            - containerPort: 30303
+              name: p2p
+              protocol: TCP
+            - containerPort: 30303
+              name: p2p-udp
+              protocol: UDP
+          resources:
+            requests:
+              cpu: 2000m
+              memory: 2Gi
+            limits:
+              cpu: 2000m
+              memory: 2Gi
+          # volumeMounts:
+          #   - mountPath: /data
+          #     name: data
+        - env:
+            - name: ETHEREUM_API_URL
+              valueFrom:
+                secretKeyRef:
+                  name: ethereum-exporter
+                  key: ETHEREUM_API_URL
+            - name: METRICS_PREFIX
+              value: parity_
+            - name: LOG_LEVEL
+              value: info
+          image: 4ops/ethereum-exporter:v0.1.0
+          readinessProbe:
+            httpGet:
+              path: /metrics
+              port: http-metrics
+            timeoutSeconds: 3
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          name: metrics-exporter
+          ports:
+            - containerPort: 9144
+              name: http-metrics
+              protocol: TCP
+          resources:
+            requests:
+              cpu: 100m
+              memory: 200Mi
+            limits:
+              cpu: 100m
+              memory: 200Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsGroup: 1000
+            runAsUser: 1000
+            procMount: Default
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 50Gi
+        storageClassName: standard

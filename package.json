@@ -1,0 +1,58 @@
+{
+    "name": "ethereum-exporter",
+    "version": "0.0.0",
+    "description": "Collects statistics from parity or geth node via JSON-RPC and exports it in prometheus metrics format.",
+    "engines": {
+        "node": ">=12.8.0"
+    },
+    "main": "./src/index.js",
+    "scripts": {
+        "docker:parity:up": "docker-compose -f docker-test.yaml -f docker/docker-compose.parity.yaml up --build -d",
+        "docker:parity:logs": "docker-compose -f docker-test.yaml -f docker/docker-compose.parity.yaml logs -f exporter",
+        "docker:parity:down": "docker-compose -f docker-test.yaml -f docker/docker-compose.parity.yaml down",
+        "docker:geth:up": "docker-compose -f docker-test.yaml -f docker/docker-compose.geth.yaml up --build -d",
+        "docker:geth:logs": "docker-compose -f docker-test.yaml -f docker/docker-compose.geth.yaml logs -f exporter",
+        "docker:geth:down": "docker-compose -f docker-test.yaml -f docker/docker-compose.geth.yaml down",
+        "debug:parity": "node -r dotenv/config . dotenv_config_path=parity.env",
+        "debug:geth": "node -r dotenv/config . dotenv_config_path=geth.env",
+        "build": "docker build . -t ethereum-exporter",
+        "prepush": "git push",
+        "push": "git push --tags",
+        "preversion": "git add -A .",
+        "postversion": "yarn run push"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/4ops/ethereum-exporter.git"
+    },
+    "keywords": [
+        "blockchain",
+        "ethereum",
+        "parity",
+        "geth",
+        "prometheus"
+    ],
+    "author": {
+        "name": "Anton Kulikov <anton.kulikov@protonmail.com>"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/4ops/ethereum-exporter/issues"
+    },
+    "homepage": "https://github.com/4ops/ethereum-exporter#readme",
+    "devDependencies": {
+        "dotenv": "^8.1.0",
+        "eslint": "^6.2.1",
+        "eslint-config-prettier": "^6.1.0",
+        "eslint-plugin-node": "^9.1.0",
+        "eslint-plugin-prettier": "^3.1.0",
+        "eslint-plugin-security": "^1.4.0",
+        "prettier": "^1.18.2"
+    },
+    "dependencies": {
+        "log-stderr": "^0.1.0",
+        "prom-client": "^11.5.3",
+        "web3": "^1.2.1",
+        "web3-eth-txpool": "^1.0.0-beta.55"
+    }
+}
