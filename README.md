@@ -6,7 +6,7 @@ https://wiki.parity.io/JSONRPC-parity-module.html
 
 Collects statistics from parity or geth node via JSON-RPC and exports it in prometheus metrics format.
 
-Example [metrics data](https://github.com/4ops/bitcoin-exporter/blob/master/examples/).
+Example [metrics data](https://github.com/4ops/ethereum-exporter/blob/master/examples/).
 
 # Compatibility
 
@@ -30,11 +30,11 @@ Put in your `docker-compose.yml`
       ETHEREUM_API_URL: http://geth:8545
 ```
 
-See full example in [docker](https://github.com/4ops/bitcoin-exporter/tree/master/examples/docker) directory.
+See full example in [docker](https://github.com/4ops/ethereum-exporter/tree/master/examples/docker) directory.
 
 ## Kubernetes
 
-Example spec for `bitcoin-exporter` container:
+Example spec for `ethereum-exporter` container:
 
 ```YAML
 - env:
