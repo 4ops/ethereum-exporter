@@ -1,5 +1,3 @@
-https://wiki.parity.io/JSONRPC-parity-module.html
-
 # Ethereum exporter
 
 [![](https://images.microbadger.com/badges/image/4ops/ethereum-exporter.svg)](https://hub.docker.com/r/4ops/ethereum-exporter 'View on Docker Hub') [![install size](https://packagephobia.now.sh/badge?p=ethereum-exporter)](https://packagephobia.now.sh/result?p=ethereum-exporter)
