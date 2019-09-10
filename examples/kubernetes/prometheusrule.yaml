@@ -1,0 +1,46 @@
+#
+# Use this resource only if prometheus operator installed.
+# See: https://github.com/coreos/prometheus-operator
+#
+# It's just an example! Edit this file before deploy to kubernetes cluster!
+#
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  labels:
+    prometheus: k8s
+    role: alert-rules
+  name: ethereum-exporter-rules
+  namespace: monitoring
+spec:
+  groups:
+    - name: ethereum-exporter.rules
+      rules:
+        - expr: |
+            sum(ethereum_exporter_errors) by (job,instance)
+          record: ethereum_errors:sum
+        - alert: EthereumErrors
+          annotations:
+            message: Ethereum node is experiencing {{ printf "%0.2f" $value }} errors / second in `{{ $labels.instance }} ({{ $labels.job }})`.
+          expr: rate(ethereum_errors:sum[5m]) > 0.1
+          for: 10m
+          labels:
+            severity: warning
+        - alert: EthereumLowPeers
+          annotations:
+            message: Too small connected peers ({{ printf "%d" $value }}) on node `{{ $labels.instance }} ({{ $labels.job }})`.
+          expr: ethereum_peer_count < 8
+          for: 30m
+          labels:
+            severity: warning
+        - expr: sum(sum(ethereum_is_listening) by (job,instance) * sum(ethereum_net_id) by (job,instance) * sum(ethereum_peer_count) by (job,instance) > 7) by (job,instance)
+          record: ethereum_up
+        - expr: ((ethereum_up > 0) * 0 + 1) * (1 - sum(ethereum_is_syncing) by (job,instance))
+          record: ethereum_ready
+        - alert: EthereumDown
+          annotations:
+            message: Ethereum node `{{ $labels.instance }} ({{ $labels.job }})` is not OK.
+          expr: ethereum_up < 1
+          for: 10m
+          labels:
+            severity: warning
